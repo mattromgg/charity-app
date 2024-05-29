@@ -8,7 +8,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import java.util.HashMap;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -151,69 +150,25 @@ public class App extends Application {
         List<String> donors = Arrays.asList("we dont have code for this yet, ");
         final ComboBox comboBox = new ComboBox();//combobox is the dropdown option, were defining a new dropdown
 
-        // Mock data for donors
-        Map<String, String[]> donorsData = new HashMap<>();
-        donorsData.put("Donor A", new String[]{"John", "Doe", "123456789", "3"});
-        donorsData.put("Donor B", new String[]{"Jane", "Smith", "987654321", "5"});
-        donorsData.put("Donor C", new String[]{"Jim", "Brown", "456123789", "2"});
 
-        // Mock data for donations
-        Map<String, String[]> donationsData = new HashMap<>();
-        donationsData.put("Donor A", new String[]{"01/01/2023, $100, Charity 1", "02/01/2023, $150, Charity 2"});
-        donationsData.put("Donor B", new String[]{"01/02/2023, $200, Charity 3", "03/02/2023, $250, Charity 4"});
-        donationsData.put("Donor C", new String[]{"04/01/2023, $300, Charity 5", "05/01/2023, $350, Charity 6"});
-
-        ComboBox<String> donorComboBox = new ComboBox<>(); // Create a ComboBox for selecting a donor
-        donorComboBox.setPromptText("Select a donor"); // Set the prompt text for the ComboBox
-        donorComboBox.getItems().addAll(donorsData.keySet()); // Add all donor names to the ComboBox
-
-        Label donorDetails = new Label(); // Label to display selected donor's details
-        Label donationDetails = new Label(); // Label to display selected donor's donation details
-
-        donorComboBox.setOnAction(event -> { // Set an action to perform when a donor is selected from the ComboBox
-            String selectedDonor = donorComboBox.getSelectionModel().getSelectedItem(); // Get the selected donor
-            if (selectedDonor != null) { // If a donor is selected
-                String[] donorInfo = donorsData.get(selectedDonor); // Get the donor details
-                donorDetails.setText("First Name: " + donorInfo[0] + "\n" + // Set the donor details text
-                        "Last Name: " + donorInfo[1] + "\n" +
-                        "Tax Number: " + donorInfo[2] + "\n" +
-                        "Number of Donations: " + donorInfo[3]);
-
-                String[] donations = donationsData.get(selectedDonor); // Get the donor's donations
-                StringBuilder donationsText = new StringBuilder("Donations:\n"); // Create a StringBuilder to build the donations text (modify the string without creating a new object)
-                for (String donation : donations) { // For each donation
-                    donationsText.append(donation).append("\n");  // Append the donation details to the text
-                }
-                donationDetails.setText(donationsText.toString()); // Set the donation details text
-            }
-        });
-
-        content.getChildren().addAll(donorComboBox, donorDetails, donationDetails); // Add the ComboBox and Labels to the VBox
-        return content; // Return the VBox
+        comboBox.setPromptText("Select a donor ");//the text on top of the comboBox says select a donor
+        comboBox.getItems().addAll(donors);//for all the months defined in donor arraylist, add a dropdown option for each
 
 
-
-        //comboBox.setPromptText("Select a donor ");//the text on top of the comboBox says select a donor
-        //comboBox.getItems().addAll(donors);//for all the months defined in donor arraylist, add a dropdown option for each
-
-
-        //StackPane root = new StackPane();
-        //root.getChildren().addAll(comboBox);
-        //StackPane.setAlignment(comboBox, javafx.geometry.Pos.TOP_CENTER);//set the comboBox position to the Top Center
+        StackPane root = new StackPane();
+        root.getChildren().addAll(comboBox);
+        StackPane.setAlignment(comboBox, javafx.geometry.Pos.TOP_CENTER);//set the comboBox position to the Top Center
 
 
-        //Scene scene = new Scene(root, 400, 300);//width and length
+        Scene scene = new Scene(root, 400, 300);//width and length
 
-        //Set the scene to the stage and show the stage
-       //donorsStage.setScene(scene);
-       //donorsStage.setTitle("Simple JavaFX Application");
-       //donorsStage.show();
-       //content.getChildren().add(root);
-       //return content;
-
-
+        // Set the scene to the stage and show the stage
+        donorsStage.setScene(scene);
+        donorsStage.setTitle("Simple JavaFX Application");
+        donorsStage.show();
+        content.getChildren().add(root);
+        return content;
     }
-
 
 
     public static void main(String[] args) {

@@ -8,7 +8,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import java.Hashtable;
+import java.util.HashMap;
 
 import java.util.ArrayList;
 import java.util.Arrays;

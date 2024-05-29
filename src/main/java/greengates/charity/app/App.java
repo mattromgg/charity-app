@@ -163,34 +163,33 @@ public class App extends Application {
         donationsData.put("Donor B", new String[]{"01/02/2023, $200, Charity 3", "03/02/2023, $250, Charity 4"});
         donationsData.put("Donor C", new String[]{"04/01/2023, $300, Charity 5", "05/01/2023, $350, Charity 6"});
 
-        ComboBox<String> donorComboBox = new ComboBox<>();
-        donorComboBox.setPromptText("Select a donor");
-        donorComboBox.getItems().addAll(donorsData.keySet());
+        ComboBox<String> donorComboBox = new ComboBox<>(); // Create a ComboBox for selecting a donor
+        donorComboBox.setPromptText("Select a donor"); // Set the prompt text for the ComboBox
+        donorComboBox.getItems().addAll(donorsData.keySet()); // Add all donor names to the ComboBox
 
-        Label donorDetails = new Label();
-        Label donationDetails = new Label();
+        Label donorDetails = new Label(); // Label to display selected donor's details
+        Label donationDetails = new Label(); // Label to display selected donor's donation details
 
-        donorComboBox.setOnAction(event -> {
-            String selectedDonor = donorComboBox.getSelectionModel().getSelectedItem();
-            if (selectedDonor != null) {
-                String[] donorInfo = donorsData.get(selectedDonor);
-                donorDetails.setText("First Name: " + donorInfo[0] + "\n" +
+        donorComboBox.setOnAction(event -> { // Set an action to perform when a donor is selected from the ComboBox
+            String selectedDonor = donorComboBox.getSelectionModel().getSelectedItem(); // Get the selected donor
+            if (selectedDonor != null) { // If a donor is selected
+                String[] donorInfo = donorsData.get(selectedDonor); // Get the donor details
+                donorDetails.setText("First Name: " + donorInfo[0] + "\n" + // Set the donor details text
                         "Last Name: " + donorInfo[1] + "\n" +
                         "Tax Number: " + donorInfo[2] + "\n" +
                         "Number of Donations: " + donorInfo[3]);
 
-                String[] donations = donationsData.get(selectedDonor);
-                StringBuilder donationsText = new StringBuilder("Donations:\n");
-                for (String donation : donations) {
-                    donationsText.append(donation).append("\n");
+                String[] donations = donationsData.get(selectedDonor); // Get the donor's donations
+                StringBuilder donationsText = new StringBuilder("Donations:\n"); // Create a StringBuilder to build the donations text (modify the string without creating a new object)
+                for (String donation : donations) { // For each donation
+                    donationsText.append(donation).append("\n");  // Append the donation details to the text
                 }
-                donationDetails.setText(donationsText.toString());
+                donationDetails.setText(donationsText.toString()); // Set the donation details text
             }
         });
 
-        content.getChildren().addAll(donorComboBox, donorDetails, donationDetails);
-        return content;
-
+        content.getChildren().addAll(donorComboBox, donorDetails, donationDetails); // Add the ComboBox and Labels to the VBox
+        return content; // Return the VBox
 
 
 

@@ -8,6 +8,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import java.Hashtable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -150,25 +151,70 @@ public class App extends Application {
         List<String> donors = Arrays.asList("we dont have code for this yet, ");
         final ComboBox comboBox = new ComboBox();//combobox is the dropdown option, were defining a new dropdown
 
+        // Mock data for donors
+        Map<String, String[]> donorsData = new HashMap<>();
+        donorsData.put("Donor A", new String[]{"John", "Doe", "123456789", "3"});
+        donorsData.put("Donor B", new String[]{"Jane", "Smith", "987654321", "5"});
+        donorsData.put("Donor C", new String[]{"Jim", "Brown", "456123789", "2"});
 
-        comboBox.setPromptText("Select a donor ");//the text on top of the comboBox says select a donor
-        comboBox.getItems().addAll(donors);//for all the months defined in donor arraylist, add a dropdown option for each
+        // Mock data for donations
+        Map<String, String[]> donationsData = new HashMap<>();
+        donationsData.put("Donor A", new String[]{"01/01/2023, $100, Charity 1", "02/01/2023, $150, Charity 2"});
+        donationsData.put("Donor B", new String[]{"01/02/2023, $200, Charity 3", "03/02/2023, $250, Charity 4"});
+        donationsData.put("Donor C", new String[]{"04/01/2023, $300, Charity 5", "05/01/2023, $350, Charity 6"});
 
+        ComboBox<String> donorComboBox = new ComboBox<>();
+        donorComboBox.setPromptText("Select a donor");
+        donorComboBox.getItems().addAll(donorsData.keySet());
 
-        StackPane root = new StackPane();
-        root.getChildren().addAll(comboBox);
-        StackPane.setAlignment(comboBox, javafx.geometry.Pos.TOP_CENTER);//set the comboBox position to the Top Center
+        Label donorDetails = new Label();
+        Label donationDetails = new Label();
 
+        donorComboBox.setOnAction(event -> {
+            String selectedDonor = donorComboBox.getSelectionModel().getSelectedItem();
+            if (selectedDonor != null) {
+                String[] donorInfo = donorsData.get(selectedDonor);
+                donorDetails.setText("First Name: " + donorInfo[0] + "\n" +
+                        "Last Name: " + donorInfo[1] + "\n" +
+                        "Tax Number: " + donorInfo[2] + "\n" +
+                        "Number of Donations: " + donorInfo[3]);
 
-        Scene scene = new Scene(root, 400, 300);//width and length
+                String[] donations = donationsData.get(selectedDonor);
+                StringBuilder donationsText = new StringBuilder("Donations:\n");
+                for (String donation : donations) {
+                    donationsText.append(donation).append("\n");
+                }
+                donationDetails.setText(donationsText.toString());
+            }
+        });
 
-        // Set the scene to the stage and show the stage
-        donorsStage.setScene(scene);
-        donorsStage.setTitle("Simple JavaFX Application");
-        donorsStage.show();
-        content.getChildren().add(root);
+        content.getChildren().addAll(donorComboBox, donorDetails, donationDetails);
         return content;
+
+
+
+
+        //comboBox.setPromptText("Select a donor ");//the text on top of the comboBox says select a donor
+        //comboBox.getItems().addAll(donors);//for all the months defined in donor arraylist, add a dropdown option for each
+
+
+        //StackPane root = new StackPane();
+        //root.getChildren().addAll(comboBox);
+        //StackPane.setAlignment(comboBox, javafx.geometry.Pos.TOP_CENTER);//set the comboBox position to the Top Center
+
+
+        //Scene scene = new Scene(root, 400, 300);//width and length
+
+        //Set the scene to the stage and show the stage
+       //donorsStage.setScene(scene);
+       //donorsStage.setTitle("Simple JavaFX Application");
+       //donorsStage.show();
+       //content.getChildren().add(root);
+       //return content;
+
+
     }
+
 
 
     public static void main(String[] args) {

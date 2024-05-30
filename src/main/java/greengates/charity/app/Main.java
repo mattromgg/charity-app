@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        String fileName = "Final.csv";
+        String fileName = "/Users/paigetimmeny/IdeaProjects/charity-app/src/main/resources/greengates/charity/app/Final.csv";
         ReadCSV readCSV = new ReadCSV(fileName);
         readCSV.read();
         List<List<String>> donations = readCSV.getDonations();

@@ -115,7 +115,8 @@ class Charity {
 
         Scanner scanner = null;
         try {
-            scanner = new Scanner(new File("/Users/paigetimmeny/IdeaProjects/charity-app/src/main/resources/greengates/charity/app/Final.csv"));//defining path for CSV File, making sure it exists
+            ///change the '...' to the name of your computer? i think, as in im paigetimmeny
+            scanner = new Scanner(new File("/Users/.../IdeaProjects/charity-app/src/main/resources/greengates/charity/app/Final.csv"));//defining path for CSV File, making sure it exists
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

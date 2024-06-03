@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-
-        String fileName = "/Users/paigetimmeny/IdeaProjects/charity-app/src/main/resources/greengates/charity/app/Final.csv";
+///change the '...' to the name of your computer? i think, as in im paigetimmeny
+        String fileName = "/Users/.../IdeaProjects/charity-app/src/main/resources/greengates/charity/app/Final.csv";
         ReadCSV readCSV = new ReadCSV(fileName);
         readCSV.read();
         List<List<String>> donations = readCSV.getDonations();
@@ -41,4 +41,3 @@ public class Main {
 
 
 
-}

@@ -101,7 +101,8 @@ class Charity {
     public static ArrayList<String> splitCharity_Month(ArrayList<String> selectedList) {
         String line;
 
-        String csvFile = "/Users/paigetimmeny/IdeaProjects/charity-app/src/main/resources/greengates/charity/app/Final.csv";
+        ///change the '...' to the name of your computer? i think, as in im paigetimmeny
+        String csvFile = "/Users/.../IdeaProjects/charity-app/src/main/resources/greengates/charity/app/Final.csv";
         ReadCSV readCSV = new ReadCSV(csvFile);
         readCSV.read();
         List<List<String>> donations = readCSV.getDonations();

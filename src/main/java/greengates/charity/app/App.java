@@ -198,153 +198,159 @@ public class App extends Application {
     }
 
 
-    public void NewPane(String charity){
+    public void NewPane(String charity) {
+
         switch (charity) {
             case "Tagtune":
-                selectedList = charity_two.getTagtune();
+                selectedList = Charity.getTagtune();
                 break;
             case "Wikibox":
-                selectedList = charity_two.getWikibox();
+                selectedList = Charity.getWikibox();
                 break;
             case "Roombo":
-                selectedList = charity_two.getRoombo();
+                selectedList = Charity.getRoombo();
                 break;
             case "Trudoo":
-                selectedList = charity_two.getTrudoo();
+                selectedList = Charity.getTrudoo();
                 break;
             case "Yakitri":
-                selectedList = charity_two.getYakitri();
+                selectedList = Charity.getYakitri();
                 break;
             case "Tagfeed":
-                selectedList = charity_two.getTagfeed();
+                selectedList = Charity.getTagfeed();
                 break;
             case "Podcat":
-                selectedList = charity_two.getPodcat();
+                selectedList = Charity.getPodcat();
                 break;
             case "Kwimbee":
-                selectedList = charity_two.getKwimbee();
+                selectedList = Charity.getKwimbee();
                 break;
             case "Minyx":
-                selectedList = charity_two.getMinyx();
+                selectedList = Charity.getMinyx();
                 break;
             case "Ntags":
-                selectedList = charity_two.getNtags();
+                selectedList = Charity.getNtags();
                 break;
             case "Thoughtstorm":
-                selectedList = charity_two.getThoughtstorm();
+                selectedList = Charity.getThoughtstorm();
                 break;
             case "Devpulse":
-                selectedList = charity_two.getDevpulse();
+                selectedList = Charity.getDevpulse();
                 break;
             case "Kaymbo":
-                selectedList = charity_two.getKaymbo();
+                selectedList = Charity.getKaymbo();
                 break;
             case "Jabbersphere":
-                selectedList = charity_two.getJabbersphere();
+                selectedList = Charity.getJabbersphere();
                 break;
             case "Gigabox":
-                selectedList = charity_two.getGigabox();
+                selectedList = Charity.getGigabox();
                 break;
             case "Meemm":
-                selectedList = charity_two.getMeemm();
+                selectedList = Charity.getMeemm();
                 break;
             case "Gigazoom":
-                selectedList = charity_two.getGigazoom();
+                selectedList = Charity.getGigazoom();
                 break;
             case "Dabvine":
-                selectedList = charity_two.getDabvine();
+                selectedList = Charity.getDabvine();
                 break;
             case "Skilith":
-                selectedList = charity_two.getSkilith();
+                selectedList = Charity.getSkilith();
                 break;
             case "Realcube":
-                selectedList = charity_two.getRealcube();
+                selectedList = Charity.getRealcube();
                 break;
             case "Gabvine":
-                selectedList = charity_two.getGabvine();
+                selectedList = Charity.getGabvine();
                 break;
             case "Pixoboo":
-                selectedList = charity_two.getPixoboo();
+                selectedList = Charity.getPixoboo();
                 break;
             case "Skyble":
-                selectedList = charity_two.getSkyble();
+                selectedList = Charity.getSkyble();
                 break;
             case "Babbleblab":
-                selectedList = charity_two.getBabbleblab();
+                selectedList = Charity.getBabbleblab();
                 break;
             case "Shuffletag":
-                selectedList = charity_two.getShuffletag();
+                selectedList = Charity.getShuffletag();
                 break;
             case "Thoughtsphere":
-                selectedList = charity_two.getThoughtsphere();
+                selectedList = Charity.getThoughtsphere();
                 break;
             case "Centimia":
-                selectedList = charity_two.getCentimia();
+                selectedList = Charity.getCentimia();
                 break;
             case "Snaptags":
-                selectedList = charity_two.getSnaptags();
+                selectedList = Charity.getSnaptags();
                 break;
             case "Leenti":
-                selectedList = charity_two.getLeenti();
+                selectedList = Charity.getLeenti();
                 break;
             case "Dynava":
-                selectedList = charity_two.getDynava();
+                selectedList = Charity.getDynava();
                 break;
             case "Buzzster":
-                selectedList = charity_two.getBuzzster();
+                selectedList = Charity.getBuzzster();
                 break;
             case "Twitterworks":
-                selectedList = charity_two.getTwitterworks();
+                selectedList = Charity.getTwitterworks();
                 break;
             case "Shufflester":
-                selectedList = charity_two.getShufflester();
+                selectedList = Charity.getShufflester();
                 break;
             case "DabZ":
-                selectedList = charity_two.getDabZ();
+                selectedList = Charity.getDabZ();
                 break;
             case "Meezzy":
-                selectedList = charity_two.getMeezzy();
+                selectedList = Charity.getMeezzy();
                 break;
             case "Eire":
-                selectedList = charity_two.getEire();
+                selectedList = Charity.getEire();
                 break;
             case "Izio":
-                selectedList = charity_two.getIzio();
+                selectedList = Charity.getIzio();
                 break;
             case "Photobean":
-                selectedList = charity_two.getPhotobean();
+                selectedList = Charity.getPhotobean();
                 break;
             case "Yodoo":
-                selectedList = charity_two.getYodoo();
+                selectedList = Charity.getYodoo();
                 break;
         }
 
+
         Stage newStage0 = new Stage(); // Create a new stage
         BorderPane newPane0 = new BorderPane();
-        newPane0.setTop(new Label("The are currently viewing the charity: " + charity));
+        newPane0.setTop(new Label("You are currently viewing the charity: " + charity));
+        newPane0.setTop(new Label("This is so ugly, but for each month it displays info on the selected charity" ));
+        newPane0.setTop(new Label("Each index [] is a new month" ));
 
-        TabPane tabPane0 = new TabPane();
-        Tab tab0 = new Tab();
-        tab0.setText("Charity Pane: ");
-        tab0.setContent(new StackPane());
-        ArrayList<ArrayList> individual1 = charity_two.splitCharity_Month(selectedList);
-        Label addressLabel1 = new Label(individual1.toString());
-        StackPane contentPane0 = new StackPane();
-        contentPane0.getChildren().add(addressLabel1);
-        ScrollPane scrollPane0 = new ScrollPane();
-        scrollPane0.setContent(CharityPane());
-        scrollPane0.setFitToWidth(true);
-        VBox tabContent0 = new VBox();
-        tabContent0.getChildren().addAll(contentPane0, scrollPane0);
-        tab0.setContent(tabContent0);
+        ArrayList<String> individual1 = Charity.splitCharity_Month(selectedList);
+        ArrayList<ArrayList> individual2 = Charity.SplitMonths(individual1);
+        String individual3 = "This is so ugly, but for each month it displays info on the selected charity";
 
-        tabPane0.getTabs().addAll(tab0);//adding all the tabs to the TabPane
+        Label infoLabel = new Label(individual2.toString());
+        Label infoLabel_one = new Label(individual3);
 
-        Scene scene0 = new Scene(tabPane0, 400, 300);//add everything together + define length + wodth
+        StackPane contentPane = new StackPane();
+        contentPane.getChildren().addAll(infoLabel_one, infoLabel);
+
+
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setContent(contentPane);
+        //scrollPane.setFitToWidth(true); // Allow the ScrollPane to resize horizontally
+
+        VBox mainContent = new VBox();
+        mainContent.getChildren().add(scrollPane);
+
+        newPane0.setCenter(mainContent);
+
+        Scene scene0 = new Scene(newPane0, 400, 300); // Add everything together + define length + width
+
         // Set the scene and show the stage
-
         newStage0.setScene(scene0);
-        //newStage.setTitle(charity);
         newStage0.show();
     }
 

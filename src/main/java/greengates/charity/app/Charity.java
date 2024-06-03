@@ -3,7 +3,7 @@ package greengates.charity.app;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
-
+//this doesnt work
 class Charity {
     ArrayList<String> allTheCharities = new ArrayList<>(Arrays.asList("Tagtune", "Wikibox", "Roombo", "Trudoo", "Yakitri", "Tagfeed", "Podcat", "Kwimbee", "Minyx", "Ntags", "Thoughtstorm", "Devpulse", "Kaymbo", "Jabbersphere", "Gigabox", "Meemm", "Gigazoom", "Dabvine", "Skilith", "Realcube", "Gabvine", "Pixoboo", "Skyble", "Babbleblab", "Shuffletag", "Thoughtsphere", "Centimia", "Snaptags", "Leenti", "Dynava", "Buzzster", "Twitterworks", "Shufflester", "DabZ", "Meezzy", "Eire", "Izio", "Photobean", "Yodoo"));
     //defining an arraylist for all the charaties
@@ -98,7 +98,7 @@ class Charity {
         return charityName;
     }
     //this will split the charity then the month, hopefully lol
-    public static ArrayList<ArrayList> splitCharity_Month(ArrayList<String> selectedList) {
+    public static ArrayList<String> splitCharity_Month(ArrayList<String> selectedList) {
         String line;
 
         String csvFile = "/Users/paigetimmeny/IdeaProjects/charity-app/src/main/resources/greengates/charity/app/Final.csv";
@@ -114,7 +114,7 @@ class Charity {
 
         Scanner scanner = null;
         try {
-            scanner = new Scanner(new File("CSV_File.csv"));//defining path for CSV File, making sure it exists
+            scanner = new Scanner(new File("/Users/paigetimmeny/IdeaProjects/charity-app/src/main/resources/greengates/charity/app/Final.csv"));//defining path for CSV File, making sure it exists
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -122,52 +122,132 @@ class Charity {
             line = scanner.nextLine();  // Read a line, while it has a next line continue reading
 
             if (line.contains("Tagtune")) {///super inefficient, however, because i need getters for App, hashmap method wouldnt wprk,
-                Tagtune.add(line + "*"); }
-            if (line.contains("Wikibox")) { Wikibox.add(line + "*"); }
-            if (line.contains("Roombo")) { Roombo.add(line + "*"); }
-            if (line.contains("Trudoo")) { Trudoo.add(line + "*"); }
-            if (line.contains("Yakitri")) { Yakitri.add(line + "*"); }
-            if (line.contains("Tagfeed")) { Tagfeed.add(line + "*"); }
-            if (line.contains("Podcat")) { Podcat.add(line + "*"); }
-            if (line.contains("Kwimbee")) { Kwimbee.add(line + "*"); }
-            if (line.contains("Minyx")) { Minyx.add(line + "*"); }
-            if (line.contains("Ntags")) { Ntags.add(line + "*"); }
-            if (line.contains("Thoughtstorm")) { Thoughtstorm.add(line + "*"); }
-            if (line.contains("Devpulse")) { Devpulse.add(line + "*"); }
-            if (line.contains("Kaymbo")) { Kaymbo.add(line + "*"); }
-            if (line.contains("Jabbersphere")) { Jabbersphere.add(line + "*"); }
-            if (line.contains("Gigabox")) { Gigabox.add(line + "*"); }
-            if (line.contains("Meemm")) { Meemm.add(line + "*");
-            } if (line.contains("Gigazoom")) { Gigazoom.add(line + "*");
-            } if (line.contains("Dabvine")) { Dabvine.add(line + "*");
-            } if (line.contains("Skilith")) { Skilith.add(line + "*");
-            } if (line.contains("Realcube")) { Realcube.add(line + "*");
-            } if (line.contains("Gabvine")) { Gabvine.add(line + "*");
-            } if (line.contains("Pixoboo")) { Pixoboo.add(line + "*");
-            } if (line.contains("Skyble")) { Skyble.add(line + "*");
-            } if (line.contains("Babbleblab")) { Babbleblab.add(line + "*");
-            } if (line.contains("Shuffletag")) { Shuffletag.add(line + "*");
-            } if (line.contains("Thoughtsphere")) { Thoughtsphere.add(line + "*");
-            } if (line.contains("Centimia")) { Centimia.add(line + "*");
-            } if (line.contains("Snaptags")) { Snaptags.add(line + "*");
-            } if (line.contains("Leenti")) { Leenti.add(line + "*");
-            } if (line.contains("Dynava")) { Dynava.add(line + "*");
-            } if (line.contains("Buzzster")) { Buzzster.add(line + "*");
-            } if (line.contains("Twitterworks")) { Twitterworks.add(line + " * ");
-            } if (line.contains("Shufflester")) { Shufflester.add(line + "*");
-            } if (line.contains("DabZ")) { DabZ.add(line + "*");
-            } if (line.contains("Meezzy")) { Meezzy.add(line + "*"); }
-            if (line.contains("Eire")) { Eire.add(line + "*");
-            } if (line.contains("Izio")) {Izio.add(line + "*");
-            } if (line.contains("Photobean")) { Photobean.add(line + "*");
-            } if (line.contains("Yodoo")) { Yodoo.add(line + "*"); //we are adding the . because it doesnt exist, and we are using it to split each line of the code
+                Tagtune.add(line + "*");
+            }
+            if (line.contains("Wikibox")) {
+                Wikibox.add(line + "\n");
+            }
+            if (line.contains("Roombo")) {
+                Roombo.add(line + "\n");
+            }
+            if (line.contains("Trudoo")) {
+                Trudoo.add(line + "\n");
+            }
+            if (line.contains("Yakitri")) {
+                Yakitri.add(line + "\n");
+            }
+            if (line.contains("Tagfeed")) {
+                Tagfeed.add(line + "\n");
+            }
+            if (line.contains("Podcat")) {
+                Podcat.add(line + "\n");
+            }
+            if (line.contains("Kwimbee")) {
+                Kwimbee.add(line + "\n");
+            }
+            if (line.contains("Minyx")) {
+                Minyx.add(line + "\n");
+            }
+            if (line.contains("Ntags")) {
+                Ntags.add(line + "*");
+            }
+            if (line.contains("Thoughtstorm")) {
+                Thoughtstorm.add(line + "\n");
+            }
+            if (line.contains("Devpulse")) {
+                Devpulse.add(line + "\n");
+            }
+            if (line.contains("Kaymbo")) {
+                Kaymbo.add(line + "\n");
+            }
+            if (line.contains("Jabbersphere")) {
+                Jabbersphere.add(line + "\n");
+            }
+            if (line.contains("Gigabox")) {
+                Gigabox.add(line + "\n");
+            }
+            if (line.contains("Meemm")) {
+                Meemm.add(line + "\n");
+            }
+            if (line.contains("Gigazoom")) {
+                Gigazoom.add(line + "\n");
+            }
+            if (line.contains("Dabvine")) {
+                Dabvine.add(line + "\n");
+            }
+            if (line.contains("Skilith")) {
+                Skilith.add(line + "\n");
+            }
+            if (line.contains("Realcube")) {
+                Realcube.add(line + "\n");
+            }
+            if (line.contains("Gabvine")) {
+                Gabvine.add(line + "\n");
+            }
+            if (line.contains("Pixoboo")) {
+                Pixoboo.add(line + "\n");
+            }
+            if (line.contains("Skyble")) {
+                Skyble.add(line + "\n");
+            }
+            if (line.contains("Babbleblab")) {
+                Babbleblab.add(line + "\n");
+            }
+            if (line.contains("Shuffletag")) {
+                Shuffletag.add(line + "\n");
+            }
+            if (line.contains("Thoughtsphere")) {
+                Thoughtsphere.add(line + "\n");
+            }
+            if (line.contains("Centimia")) {
+                Centimia.add(line + "\n");
+            }
+            if (line.contains("Snaptags")) {
+                Snaptags.add(line + "\n");
+            }
+            if (line.contains("Leenti")) {
+                Leenti.add(line + "\n");
+            }
+            if (line.contains("Dynava")) {
+                Dynava.add(line + "\n");
+            }
+            if (line.contains("Buzzster")) {
+                Buzzster.add(line + "*");
+            }
+            if (line.contains("Twitterworks")) {
+                Twitterworks.add(line + "\n");
+            }
+            if (line.contains("Shufflester")) {
+                Shufflester.add(line + "\n");
+            }
+            if (line.contains("DabZ")) {
+                DabZ.add(line + "\n");
+            }
+            if (line.contains("Meezzy")) {
+                Meezzy.add(line + "\n");
+            }
+            if (line.contains("Eire")) {
+                Eire.add(line + "\n");
+            }
+            if (line.contains("Izio")) {
+                Izio.add(line + "\n");
+            }
+            if (line.contains("Photobean")) {
+                Photobean.add(line + "\n");
+            }
+            if (line.contains("Yodoo")) {
+                Yodoo.add(line + "\n"); //we are adding the . because it doesnt exist, and we are using it to split each line of the code
                 // to be used in the next part to tell the computer this is where we're splitting the line
             }
         }
         scanner.close();
+        return selectedList;
 
 
-   //the months
+    }
+   public static ArrayList<ArrayList> SplitMonths(ArrayList<String> selectedList){
+
+    ArrayList<ArrayList> allMonths = null;
     ArrayList<String> January = new ArrayList<>(); January.add("Jan: ");
     ArrayList<String> February = new ArrayList<>(); February.add("Feb: ");
     ArrayList<String> March = new ArrayList<>(); March.add("Mar: ");
@@ -181,7 +261,6 @@ class Charity {
     ArrayList<String> November = new ArrayList<>(); November.add("Nov: ");
     ArrayList<String> December = new ArrayList<>(); November.add("Dec: ");
 
-    ArrayList<ArrayList> allMonths = null;
     for (String splitElement : selectedList) { //input list is the same thing as individual in the others, its just the charity list
         String[] splitElements = splitElement.split("\\s+");  // Split by whitespace
         // Iterate over split elements
@@ -214,10 +293,9 @@ class Charity {
         allMonths.add(November);
         allMonths.add(December);
     }
+
     return allMonths;//returns all the months
         // return selectedList;//the selectedList is the one we will choose ourselvs, used in HeloApplication
         // System.out.println(Yodoo);
-}
-
-
+        }
 }
